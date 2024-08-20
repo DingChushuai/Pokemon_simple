@@ -11,7 +11,7 @@ This is a fake Pokemon which is eary for C++ learner
 7. 声音: 负责播放声音
 8. 任务触发器: 负责触发任务
 
-资源文件:
+资源文件:统一使用csv文件
 1. gamebar
 2. maps
 3. sounds

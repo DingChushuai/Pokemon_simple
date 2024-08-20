@@ -1,5 +1,8 @@
-// this is a test project
+#include "lib/Game.h"
 
-int main() {
+int main()
+{
+    Game game;
+    game.Run();
     return 0;
-    }
+}
