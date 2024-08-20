@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+/Pokemon_simple.sln
+/Pokemon_simple.vcxproj
+/Pokemon_simple.vcxproj.filters
+/Pokemon_simple.vcxproj.user
+/x64/Debug
