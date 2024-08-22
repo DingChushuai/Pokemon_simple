@@ -2,7 +2,7 @@ class Sound
 {
     //以下内容需要根据给出的资源文件进行补充
     //游戏音效和音乐 枚举类
-    enum SoundID
+    const enum SoundID
     {
         //预留编号0表示无音乐
         MUSI_NONE = 0,

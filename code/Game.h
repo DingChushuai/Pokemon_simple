@@ -5,8 +5,6 @@
 #include "Combat.h"
 #include "PokemonLib.h"
 
-#define NPC_COUNT 5
-
 class Game
 {
 private:
@@ -22,8 +20,7 @@ private:
     //void Save();
     //void Load();
 public:
-    //Game() {};
-    //~Game() {};
+    Game() ;
+    ~Game() ;
     void Run();
-    //void GameOver();
 };

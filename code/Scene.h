@@ -2,25 +2,24 @@
 #include "Shop.h"
 #include "Log.h"
 
-extern enum SceneID;
-
 class Scene
 {
+    const enum SceneType {
+        MENUSCREEN,
+        GAME,
+        SHOP,
+        POKEMON_CENTER,
+        WORLD_MAP,
+        BATTLE,
+    };
     private:
-        SceneID senceID;
-        Map *map;
+        SceneType sceneType;
+        vector<Map> maps;
+        Map* mapNow;
         Shop *shop;
         Log *log;
-
-        void DrawMap();
-        void DrawGame();
-        void DrawShop();
-
     public:
         Scene();
         ~Scene();
-        void SetSceneID(SceneID sceneID);
-        bool LoadScene(SceneID sceneID);
-        void DrawScene();
 
 };
