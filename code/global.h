@@ -75,9 +75,9 @@ NPC_State.csv
 	NPC_ID,NPC_Name,NPC_StateID,MapID,x,y
 */
 
-//接下来为工具函数
-#include <vector>
+#pragma once
 #include <string>
+#include <vector>
 using namespace std;
 
 inline vector<string> split(const string& s, char delimiter);
