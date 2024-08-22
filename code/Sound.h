@@ -1,22 +1,18 @@
-
-//以下内容需要根据给出的资源文件进行补充
-//游戏音效和音乐 枚举类
-enum SoundID
-{
-    //预留编号0表示无音乐
-    MUSI_NONE = 0,
-    MUSIC_MAIN = 1,
-};
-
-//音乐路径
-const char* MUSIC_PATH[] =
-{
-    "",
-    "./resource/music/main.mp3",
-};
-
 class Sound
 {
+    //以下内容需要根据给出的资源文件进行补充
+    //游戏音效和音乐 枚举类
+    enum SoundID
+    {
+        //预留编号0表示无音乐
+        MUSI_NONE = 0,
+        MUSIC_MAIN = 1,
+    };
+    //音乐路径
+    const char* MUSIC_PATH[2] ={
+        "",
+        "./resource/music/main.mp3",
+    };
 private:
     SoundID musicNow;   //当前播放的音乐
 public:
