@@ -34,26 +34,26 @@ gamebar.txt:
 
 NPC_Info.csv
 	文本化的NPC信息文件, 在载入游戏时, 读取该文件并将其作为NPC信息
-    	格式为(每一项以逗号分隔):
-    	NPC_ID(从0开始),NPC_Name,NPC_DefultPosition(MapID,PositionX,PositionY),NPC_States
+		格式为(每一项以逗号分隔):
+		NPC_ID(从0开始),NPC_Name,NPC_DefultPosition(MapID,PositionX,PositionY),NPC_States
 		NPC_States(每一项以"/"分隔, 每个参数以"|"分隔):
 		NPC_state默认为0, 然后跳转到其他状态, 每个状态包括:
 		stateID:状态ID
 		stateTalk:该状态下NPC的对话
 		stateNotFinishTalk:当状态未完成时, NPC的对话
-        stateAction:该状态下NPC的行为
-        stateNext:该状态下如果判断状态完成,NPC的下一个状态
+		stateAction:该状态下NPC的行为
+		stateNext:该状态下如果判断状态完成,NPC的下一个状态
 		stateAction:不同的行为有不同的参数,每个参数用"\分隔":
-        		0:无行为, 对话完成后直接跳转到下一个状态
-        		1:移动到指定位置(MapID,PositionX,PositionY)
-        		2:触发战斗(BattleID, 位于Battle.csv), 战斗胜利视为状态完成
+				0:无行为, 对话完成后直接跳转到下一个状态
+				1:移动到指定位置(MapID,PositionX,PositionY)
+				2:触发战斗(BattleID, 位于Battle.csv), 战斗胜利视为状态完成
 				3.检查其他NPC状态(NPC_ID,State_ID), 如果NPC_ID的NPC处于State_ID状态, 则状态完成
 				4.检查玩家是否拥有指定物品(PropID), 如果拥有, 则状态完成
 				5.提交物品(PropID,PropCount), 将玩家拥有的PropID物品,数量为Prop个提交给NPC, 然后状态完成
 				6.检查玩家是否拥有指定宝可梦(PokemonID), 如果拥有, 则状态完成
 				7.将某个宝可梦(PokemonID)交给玩家, 然后状态完成
 				8.将某个道具(PropID,PropCount)交给玩家
- 
+
 		例如:
 			某个名为小智的NPC(ID为1),他的行为为:
 			0.初次对话后说"你好,我是小智"
@@ -62,17 +62,17 @@ NPC_Info.csv
 			3.当你找到小智后,他会和你展开一场战斗(假设BattleID为1)
 			4.完成战斗后他会夸奖你,然后给你一个道具(PropID为1,PropCount为2), 然后小智移动到其他地图位置
 		对应的csv内容为(实际的csv文件中不会进行分行,此处为了演示分行):
-        1,小智,1/15/20,		(小智的ID为1,一开始再id为1的地图上的x=15,y=20的位置)
+		1,小智,1/15/20,		(小智的ID为1,一开始再id为1的地图上的x=15,y=20的位置)
 		0|你好,我是小智||0|1 /		(初次对话后说"你好,我是小智",然后跳转到状态1)
-        1|请你去找大木博士吧,他有一只皮卡丘可以给你||1\2\18\18|2 /	(小智会要你去找大木博士对话, 然后移动到ID=2的地图上的x=18,y=18的位置,然后跳转到状态2)
+		1|请你去找大木博士吧,他有一只皮卡丘可以给你||1\2\18\18|2 /	(小智会要你去找大木博士对话, 然后移动到ID=2的地图上的x=18,y=18的位置,然后跳转到状态2)
 		2|很好,你现在有了一只宝可梦了|你还没找到大木博士啊|6\1|3 / (当状态未完成时, 小智会告诉你还没找到大木博士, 当状态完成时, 小智会告诉你, 你现在有了一只宝可梦了, 然后跳转到状态3)
 		3|恭喜你,现在我们来打一场战斗吧|你现在还太弱了|2\1|4 /	(触发战斗ID为1的战斗, 战胜后跳转到状态4,否则保持在3)
-        4|很好,你现在变得更强大了,我送你两个精灵球吧||8\6|4	(战斗胜利后, 小智会夸奖你, 然后给你两个精灵球ID=6, 然后跳转到状态4)
+		4|很好,你现在变得更强大了,我送你两个精灵球吧||8\6|4	(战斗胜利后, 小智会夸奖你, 然后给你两个精灵球ID=6, 然后跳转到状态4)
 
 NPC_State.csv
 	对NPC状态的存档文件, 在存档时, 读取该文件并将其作为NPC状态(其位于save文件夹)
-    格式为(每一项以逗号分隔):
-    NPC_ID,NPC_Name,NPC_StateID,MapID,x,y
+	格式为(每一项以逗号分隔):
+	NPC_ID,NPC_Name,NPC_StateID,MapID,x,y
 */
 
 //接下来为工具函数
